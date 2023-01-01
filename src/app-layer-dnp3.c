@@ -819,7 +819,7 @@ static int DNP3DecodeApplicationObjects(DNP3Transaction *tx, const uint8_t *buf,
         buf += offset;
         len -= offset;
 
-        if (object->variation == 0 || object->count == 0) {
+        if (object->variation == 0 || object->count == 0 || tx->request_ah.function_code == DNP3_APP_FC_READ) {
             goto next;
         }
 
